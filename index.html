@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Hemodinamia</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="panel-filtros" class="panel visible">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Unidades con salas de Hemodinamia</p>
+          <h1>Mapa de Hemodinamia</h1>
+        </div>
+        <button id="btnToggleFiltros" class="btn-icono" title="Colapsar filtros" aria-label="Colapsar filtros">☰</button>
+      </div>
+
+      <div id="contenido-filtros">
+        <div class="panel-resumen">
+          <div class="resumen-item">
+            <span class="resumen-etiqueta">Unidades visibles</span>
+            <strong id="contadorUnidades">0</strong>
+          </div>
+        </div>
+
+        <div class="bloque-filtro">
+          <label for="filtroInstitucion">Institución</label>
+          <select id="filtroInstitucion">
+            <option value="">Todas</option>
+          </select>
+        </div>
+
+        <div class="bloque-filtro">
+          <label for="filtroEntidad">Entidad</label>
+          <select id="filtroEntidad">
+            <option value="">Todas</option>
+          </select>
+        </div>
+
+        <div class="bloque-filtro">
+          <label for="filtroMunicipio">Municipio</label>
+          <select id="filtroMunicipio">
+            <option value="">Todos</option>
+          </select>
+        </div>
+
+        <div class="bloque-filtro">
+          <label for="filtroTipoUnidad">Tipo de unidad</label>
+          <select id="filtroTipoUnidad">
+            <option value="">Todos</option>
+          </select>
+        </div>
+
+        <div class="acciones-filtros">
+          <button id="btnLimpiarFiltros" class="btn-secundario">Limpiar filtros</button>
+        </div>
+
+        <section class="leyenda">
+          <div class="leyenda-header">
+            <h2>Leyenda</h2>
+            <p>Icono SVG por institución</p>
+          </div>
+          <div id="leyendaInstituciones" class="leyenda-lista"></div>
+          <div class="leyenda-nota">
+            <span class="mini-badge">#</span>
+            <span>El número al centro indica la cantidad de salas.</span>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <button id="btnAbrirFiltros" class="btn-flotante oculto" title="Mostrar filtros" aria-label="Mostrar filtros">☰</button>
+
+    <main id="mapa"></main>
+
+    <aside id="panel-detalle" class="detalle-vacio">
+      <div class="detalle-header">
+        <div>
+          <p class="eyebrow">Ficha de la unidad seleccionada</p>
+          <h2>Detalle de la unidad</h2>
+        </div>
+      </div>
+
+      <div id="detalle-contenido">
+        <div class="estado-vacio">
+          <div class="estado-vacio-icono">⌖</div>
+          <p>Selecciona una unidad en el mapa para ver su información.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
